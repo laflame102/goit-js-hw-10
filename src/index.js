@@ -18,7 +18,7 @@ function onSearch(evt) {
     const value = evt.target.value.trim();
 
     refs.info.innerHTML = '';
-    refs.input.innerHTML = '';
+    refs.list.innerHTML = '';
 
     if (!evt.target.value) {
         return;
@@ -37,6 +37,7 @@ function onSearch(evt) {
                 else if (data.length === 1) {
                     createCountryInfo(data);
                 }
+                console.log(data);
         })
         .catch(error => Notiflix.Notify.failure(`${error}`))
     }
@@ -54,7 +55,7 @@ function createCountryInfo(countries){
     const markup = countries.map(({ name: { official }, capital, population, flags: { svg }, languages }) => {
         const allLanguages = Object.values(languages);
         return `<div>
-      <img class="country__img" src="${svg}" alt="${official}">
+      <img class="country__img" width="40px" src="${svg}" alt="${official}">
       <h2 class="country__heading">${official}</h2>
       <ul class="country__menu">
         <li class="country__item">Capital: ${capital}</li>
