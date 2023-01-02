@@ -37,7 +37,6 @@ function onSearch(evt) {
                 else if (data.length === 1) {
                     createCountryInfo(data);
                 }
-                console.log(data);
         })
         .catch(error => Notiflix.Notify.failure(`${error}`))
     }
